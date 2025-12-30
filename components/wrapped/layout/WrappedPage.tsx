@@ -17,7 +17,7 @@ export function WrappedPage({ children, className }: WrappedPageProps) {
         className
       )}
     >
-      <div className="fixed inset-0 z-0 pointer-events-none bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#333_1px,transparent_1px)] bg-[size:16px_16px] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-50" />
+      <div className="fixed inset-0 z-0 pointer-events-none bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#333_1px,transparent_1px)] bg-size-[16px_16px] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-50" />
       <div className="relative z-10">{children}</div>
     </main>
   );
@@ -53,7 +53,7 @@ export function Hero({ className }: HeroProps) {
 
         <div className="relative py-8 md:py-16">
           {/* Glitchy/Tech Title */}
-          <h1 className="font-mono text-[15vw] leading-none tracking-tighter font-bold select-none text-center">
+          <h1 className="font-mono text-[22vw] md:text-[15vw] leading-none tracking-tighter font-bold select-none text-center">
             <span className="inline-block hover:text-muted-foreground/50 transition-colors duration-300 transform hover:scale-105 cursor-default">
               2
             </span>
@@ -74,7 +74,7 @@ export function Hero({ className }: HeroProps) {
 
         <FadeIn delay={1.5}>
           <div className="mt-12 md:mt-16 max-w-xl mx-auto space-y-6 px-4">
-            <p className="text-lg md:text-xl font-medium text-foreground/90 tracking-tight">
+            <p className="text-xl md:text-2xl font-medium text-foreground/90 tracking-tight">
               The year I crossed oceans and climbed mountains.
             </p>
           </div>
@@ -111,11 +111,11 @@ export function Footer({ className }: FooterProps) {
     >
       <div className="border-t border-border/40 w-full max-w-xl mx-auto mb-12" />
 
-      <p className="mt-10 text-base font-medium text-center text-muted-foreground font-mono tracking-tight">
+      <p className="mt-10 text-lg md:text-xl font-medium text-center text-muted-foreground font-mono tracking-tight">
         ON TO THE NEXT ONE.
       </p>
 
-      <div className="flex flex-row w-full justify-center font-mono text-[12vw] leading-none mb-0 p-0 py-12 md:py-20 select-none opacity-80 hover:opacity-100 transition-opacity duration-500">
+      <div className="flex flex-row w-full justify-center font-mono text-[20vw] md:text-[12vw] leading-none mb-0 p-0 pt-12 pb-5 md:pt-20 select-none opacity-80 hover:opacity-100 transition-opacity duration-500">
         &gt;2026
         <span className="text-muted-foreground font-light cursor-blink leading-none ml-2 md:ml-4">
           |
