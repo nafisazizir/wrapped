@@ -1502,7 +1502,7 @@ export default function Page() {
       {/* ==================== AUGUST - NEW ZEALAND ==================== */}
       <TextInterlude size="xl" timeContext="August">
         <p className="text-muted-foreground">Then I flew to New Zealand.</p>
-        <p className="text-sm text-muted-foreground mt-6">
+        <p className="text-base text-muted-foreground mt-6 tracking-tight">
           Part of the grad trip series.{" "}
           <a
             href="https://www.nafisazizi.com/blog/debrief-episode-2-finding-the-adventurer-within"
