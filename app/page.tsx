@@ -1764,7 +1764,32 @@ export default function Page() {
         </p>
       </TextInterlude>
 
-      <PolaroidCluster items={octNovDec.slice(13, 16)} />
+      <PolaroidCluster items={octNovDec.slice(13, 15)} />
+
+      <Section className="max-w-4xl mx-auto px-4 md:px-8 py-8">
+        <VideoPlayer
+          src="/2025/2025-12-19-09-07-43.MP4"
+          className="mx-auto justify-center"
+          videoClassName="w-52 md:w-80"
+          aspectRatio="aspect-[9/16]"
+          objectPosition="object-cover"
+          caption="23km ride + 23km run with roommates"
+          captionPosition="right"
+        />
+      </Section>
+
+      <Section className="max-w-4xl mx-auto px-4 md:px-8 py-8">
+        <div className="flex justify-center">
+          <div className="w-70 md:w-85">
+            <Polaroid
+              src={octNovDec[15].path}
+              alt={octNovDec[15].hint}
+              caption={octNovDec[15].label}
+              rotation={-2}
+            />
+          </div>
+        </div>
+      </Section>
 
       <FeatureMoment
         src={octNovDec[17].path}

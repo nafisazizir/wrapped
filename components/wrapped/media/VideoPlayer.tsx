@@ -6,17 +6,21 @@ import { cn } from "@/lib/utils";
 interface VideoPlayerProps {
   src: string;
   className?: string;
+  videoClassName?: string;
   aspectRatio?: string;
   caption?: string;
   objectPosition?: string;
+  captionPosition?: "bottom" | "left" | "right";
 }
 
 export function VideoPlayer({
   src,
   className,
+  videoClassName,
   aspectRatio = "aspect-9/16 md:aspect-video",
   caption,
   objectPosition = "object-cover",
+  captionPosition = "bottom",
 }: VideoPlayerProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isMuted, setIsMuted] = useState(true);
@@ -80,13 +84,30 @@ export function VideoPlayer({
     toggleMute();
   };
 
+  const isSideCaption =
+    captionPosition === "left" || captionPosition === "right";
+
   return (
-    <div className={cn("relative py-8", className)}>
-      <div className="group relative">
+    <div
+      className={cn(
+        "relative py-8",
+        isSideCaption &&
+          "flex flex-col md:flex-row items-center gap-6 md:gap-10",
+        captionPosition === "left" && "md:flex-row-reverse",
+        className
+      )}
+    >
+      <div
+        className={cn(
+          "group relative",
+          isSideCaption && "shrink-0",
+          videoClassName
+        )}
+      >
         <div className="absolute -inset-1 bg-linear-to-r from-primary/10 to-secondary/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md" />
         <div
           className={cn(
-            "relative overflow-hidden rounded-lg border border-border/50 shadow-2xl bg-black",
+            "relative overflow-hidden rounded-lg shadow-2xl bg-black",
             aspectRatio
           )}
         >
@@ -159,12 +180,29 @@ export function VideoPlayer({
         </div>
       </div>
 
-      {caption && (
+      {caption && !isSideCaption && (
         <div className="mt-4 flex flex-col items-center gap-2">
           <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest">
             {"// Video_Log"}
           </span>
           <p className="text-center text-sm text-foreground/80 font-medium">
+            {caption}
+          </p>
+        </div>
+      )}
+
+      {caption && isSideCaption && (
+        <div
+          className={cn(
+            "flex flex-col gap-3 max-w-sm",
+            captionPosition === "right" && "md:text-left",
+            captionPosition === "left" && "md:text-right"
+          )}
+        >
+          <span className="text-xs font-mono text-muted-foreground uppercase tracking-widest">
+            {"// Video_Log"}
+          </span>
+          <p className="text-base md:text-lg text-foreground/90 font-medium leading-relaxed">
             {caption}
           </p>
         </div>
