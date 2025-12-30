@@ -1187,7 +1187,19 @@ export default function Page() {
         description="Back in Brisbane for Eid. Offered our place for the gathering. Good food, better company."
         imagePosition="left"
       />
-      {/* TODO: HAD TO INSERT THE GATHERING PHOTO WITH THE FOOD ON THE TABLE */}
+
+      <Section className="max-w-4xl mx-auto px-4 md:px-8 py-8">
+        <div className="flex justify-center">
+          <div className="w-70 md:w-85">
+            <Polaroid
+              src={march[10].path}
+              alt={march[10].hint}
+              caption={march[10].label}
+              rotation={2}
+            />
+          </div>
+        </div>
+      </Section>
 
       {/* ==================== APRIL - MAY ==================== */}
       <TextInterlude size="lg" timeContext="April - May">
@@ -1248,37 +1260,52 @@ export default function Page() {
         </p>
       </TextInterlude>
 
-      {/* ==================== JUNE - SF ==================== */}
-      {/* TODO: HAD TO SEPARATE AND/OR EMPHASIZE SF
-      CAN DO LIKE, JUNE IS QUITE BUSY WITH EVERYTHING, EID, THEN STUDY FOR FINALS AND UNI GRAD PREP
-      THEN AFTER LAST DAY OF EXAM, DID A GRAD TRIP TO SF
-      THEN CAN DO A SPECIAL SECTION FOR SF */}
+      {/* ==================== JUNE - BRISBANE ==================== */}
       <TextInterlude size="lg" timeContext="June">
-        <p>Finals done. San Francisco next.</p>
+        <p>June was a lot.</p>
       </TextInterlude>
 
       <PolaroidCluster items={june.slice(0, 4)} />
 
       <TextInterlude>
         <p>
-          Another Eid Adha hosted at our place. Study sessions for finals. Then
-          the last exam, celebration dinner, and on a plane.
+          Another Eid Adha hosted at our place. Then straight into finals mode.
+          Library sessions, late nights, the usual grind.
+        </p>
+        <p className="mt-4 text-muted-foreground">
+          One last exam. One celebration dinner. Then I got on a plane.
         </p>
       </TextInterlude>
 
-      {/* TODO: I ALSO WROTE A TRAVEL/REFLECTION BLOG ABOUT MY TRIP IN SF
-      https://www.nafisazizi.com/blog/debrief-episode-1-crossing-impossible-distances
-      YOU CAN READ IT TO HAVE MORE CONTEXT, ALSO FEEL FREE TO PUT IT IN THE
-      WRAPPED AS WELL SO PEOPLE CAN GO THERE AND READ IT IF THEY HAVENT */}
+      {/* ==================== SF - THE TRIP ==================== */}
+      <TextInterlude size="xl">
+        <p className="text-muted-foreground">
+          The next morning, I was in San Francisco.
+        </p>
+      </TextInterlude>
 
       <FeatureMoment
         src={june[5].path}
-        alt="SF"
+        alt="SF arrival"
         headline="San Francisco"
-        description="The next day I was in SF, crashing at Patrick's place. Living room became my bedroom. No complaints."
+        description="Crashing at Patrick's place. Living room became my bedroom. The gap between wanting something and achieving it isn't as wide as it seems."
         imagePosition="left"
         priority
       />
+
+      <TextInterlude>
+        <p className="text-sm text-muted-foreground">
+          I wrote about this trip.{" "}
+          <a
+            href="https://www.nafisazizi.com/blog/debrief-episode-1-crossing-impossible-distances"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-4 hover:text-foreground transition-colors"
+          >
+            Read the full story →
+          </a>
+        </p>
+      </TextInterlude>
 
       <PolaroidCluster items={june.slice(6, 11)} />
 
@@ -1327,7 +1354,21 @@ export default function Page() {
 
       <PolaroidCluster items={julyTahoe.slice(0, 3)} />
 
-      {/* TODO: HAD TO INSERT THE FIREWORK VIDEO IN HERE */}
+      <Section className="max-w-4xl mx-auto px-4 md:px-8 py-8 md:pt-14">
+        <div className="relative aspect-9/16 md:aspect-video max-w-md md:max-w-2xl mx-auto overflow-hidden rounded-sm">
+          <video
+            src="/2025/2025-07-04-21-42-00.MOV"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover md:object-[50%_65%]"
+          />
+        </div>
+        <p className="text-center text-sm text-muted-foreground mt-4">
+          4th of July fireworks at Lake Tahoe
+        </p>
+      </Section>
 
       <TextInterlude>
         <p>
@@ -1396,44 +1437,58 @@ export default function Page() {
         </p>
       </TextInterlude>
 
-      {/* ==================== JULY - GRADUATION ==================== */}
-      <TextInterlude size="xl" timeContext="July 17">
+      {/* ==================== JULY - FAMILY & GRADUATION ==================== */}
+      <TextInterlude size="xl" timeContext="Mid July">
         <p className="text-muted-foreground">
-          Straight back to Brisbane. Then Sydney to pick up family.
+          Landed in Brisbane. Dropped off my bag.
           <br />
-          Because graduation was coming.
+          Next morning, flew to Sydney.
         </p>
       </TextInterlude>
 
-      {/* TODO: THIS WHOLE SECTION FEELS A BIT CLUMSY AND NOT FLOWING
-      FOR THE RECORD, THE TIMELINE IS: I BACK TO BRISBANE TO DROP OFF MY BAG
-      THEN FLEW TO SYDNEY NEXT MORNING TO PICKUP FAMILY AND WE TRAVEL THERE FOR A FEW DAYS
-      THEN FLEW BACK TO BRISBANE FOR MY GRADUATION
-      THEN THEY FLEW BACK HOME TO INDONESIA */}
+      <PolaroidCluster items={[julyAustralia[0], julyAustralia[1]]} />
+
+      <TextInterlude>
+        <p>
+          Family flew in from Indonesia. Spent a few days exploring Sydney
+          together. Bondi, city walks, the usual tourist things.
+        </p>
+        <p className="mt-4 text-muted-foreground">
+          Then we flew back to Brisbane. Because graduation was coming.
+        </p>
+      </TextInterlude>
 
       <FeatureMoment
         src={julyAustralia[2].path}
         alt="Graduation"
         headline="Graduated"
-        description="Four years of work. One ceremony. Family flew in from Indonesia. The Brisbane gang showed up. This one meant everything."
+        description="Four years of work. One ceremony. Family in the crowd. The Brisbane gang showed up. This one meant everything."
         imagePosition="left"
         layout="full"
       />
 
-      <PolaroidCluster
-        items={[julyAustralia[0], julyAustralia[1], julyAustralia[3]]}
-      />
+      <Section className="max-w-4xl mx-auto px-4 md:px-8 py-8">
+        <div className="flex justify-center">
+          <div className="w-70 md:w-85">
+            <Polaroid
+              src={julyAustralia[3].path}
+              alt={julyAustralia[3].hint}
+              caption={julyAustralia[3].label}
+              rotation={-2}
+            />
+          </div>
+        </div>
+      </Section>
 
       <TextInterlude>
         <p>
-          Bondi with family. Grad pics with the gang. The week felt surreal.
+          Grad pics with the gang. The week felt surreal. Then family flew back
+          home.
         </p>
       </TextInterlude>
 
       <TextInterlude timeContext="Late July">
-        <p>
-          After the chaos, Straddie with the roommate. Sun, beach, kangaroos.
-        </p>
+        <p>After the chaos, Straddie with the roommate.</p>
       </TextInterlude>
 
       <PolaroidCluster items={julyAustralia.slice(5, 9)} />
@@ -1450,19 +1505,35 @@ export default function Page() {
       />
 
       {/* ==================== AUGUST - NEW ZEALAND ==================== */}
-      {/* TODO: MORE HIGHLIGHTS ON THIS TRIP
-      IT'S PART OF MY GRAD TRIP SERIES
-      SEE AND READ THE BLOG HERE: https://www.nafisazizi.com/blog/debrief-episode-2-finding-the-adventurer-within
-      ALSO https://www.nafisazizi.com/blog/debrief-episode-3-hostel-chronicles */}
       <TextInterlude size="xl" timeContext="August">
         <p className="text-muted-foreground">Then I flew to New Zealand.</p>
+        <p className="text-sm text-muted-foreground mt-6">
+          Part of the grad trip series.{" "}
+          <a
+            href="https://www.nafisazizi.com/blog/debrief-episode-2-finding-the-adventurer-within"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-4 hover:text-foreground transition-colors"
+          >
+            The adventure
+          </a>
+          {" · "}
+          <a
+            href="https://www.nafisazizi.com/blog/debrief-episode-3-hostel-chronicles"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-4 hover:text-foreground transition-colors"
+          >
+            The hostels
+          </a>
+        </p>
       </TextInterlude>
 
       <FeatureMoment
         src={august[2].path}
         alt="First snow"
         headline="First time seeing snow"
-        description="With my own eyes. Not on a screen. Real snow. Couldn't believe I made it here."
+        description="With my own eyes. Not on a screen. Real snow. If I didn't go while I had the chance, I knew I'd regret it forever."
         imagePosition="left"
       />
 
@@ -1523,12 +1594,11 @@ export default function Page() {
 
       <PolaroidCluster items={august.slice(14, 17)} />
 
-      {/* TODO: IDK WHATS THE BEST HEADLINE AND DESCRIPTION FOR THIS */}
       <FeatureMoment
         src={august[17].path}
         alt="Hooker Valley"
-        headline="Hooker Valley"
-        description="This place left me speechless"
+        headline="Blown away"
+        description="There's something about hiking that connects you to a place unlike other activities. This was one of those moments."
         imagePosition="right"
       />
 
@@ -1569,12 +1639,12 @@ export default function Page() {
         </p>
       </TextInterlude>
 
-      {/* TODO: ADD PROPS TO SET ANCHOR POINT/ALIGNMENT OF THE IMAGE: BOTTOM/TOP/LEFT/RIGHT/CENTER */}
       <FeatureMoment
         src={august[28].path}
         alt="Southern Alps"
         imagePosition="right"
         layout="full"
+        objectPosition="center"
       />
 
       <FeatureMoment
@@ -1703,7 +1773,7 @@ export default function Page() {
           It was too good to be true.
         </p>
       </TextInterlude>
-{/*   TODO: MAKE RESPONSIVE */}
+
       <Footer />
     </WrappedPage>
   );

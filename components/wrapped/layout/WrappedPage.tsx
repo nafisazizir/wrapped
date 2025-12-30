@@ -71,10 +71,15 @@ interface FooterProps {
 
 export function Footer({ className }: FooterProps) {
   return (
-    <footer className="text-center mt-24">
-      <p className="font-mono text-[350px] leading-tight mb-0 p-0">
-        &gt;2026<span className="text-muted-foreground font-light cursor-blink">|</span>
-      </p>
+    <footer
+      className={cn("text-center mt-24 overflow-hidden mb-0 pb-0", className)}
+    >
+      <span className="flex flex-row w-full  justify-center font-mono text-[80px] sm:text-[120px] md:text-[200px] lg:text-[280px] xl:text-[350px] leading-tight mb-0 p-0">
+        <TextReveal>&gt;2026</TextReveal>
+        <span className="text-muted-foreground font-light cursor-blink leading-tight">
+          |
+        </span>
+      </span>
     </footer>
   );
 }

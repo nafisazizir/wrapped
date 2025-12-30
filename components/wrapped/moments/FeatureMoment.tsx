@@ -14,6 +14,7 @@ interface FeatureMomentProps {
   className?: string;
   imagePosition?: "left" | "right";
   layout?: "split" | "full" | "editorial";
+  objectPosition?: "top" | "center" | "bottom" | "left" | "right";
 }
 
 export function FeatureMoment({
@@ -25,7 +26,15 @@ export function FeatureMoment({
   className,
   imagePosition = "left",
   layout = "editorial",
+  objectPosition = "center",
 }: FeatureMomentProps) {
+  const objectPositionClass = {
+    top: "object-top",
+    center: "object-center",
+    bottom: "object-bottom",
+    left: "object-left",
+    right: "object-right",
+  }[objectPosition];
   if (layout === "full") {
     return (
       <Section className={cn("relative w-full", className)}>
@@ -35,7 +44,7 @@ export function FeatureMoment({
             alt={alt}
             fill
             priority={priority}
-            className="object-cover"
+            className={cn("object-cover", objectPositionClass)}
             sizes="100vw"
           />
         </div>
@@ -82,7 +91,7 @@ export function FeatureMoment({
             alt={alt}
             fill
             priority={priority}
-            className="object-cover"
+            className={cn("object-cover", objectPositionClass)}
             sizes="(max-width: 768px) 100vw, 50vw"
           />
         </div>
