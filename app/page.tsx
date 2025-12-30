@@ -277,16 +277,17 @@ const june: MediaItem[] = [
   {
     timestamp: "2025-06-17T20:13:37",
     path: "2025/2025-06-17-20-13-37.jpg",
-    label: "Last Exam",
+    label: "Celebration Dinner",
     type: "image",
     hint: "celebration dinner after finals",
   },
   {
-    timestamp: "2025-06-19T12:39:11",
-    path: "2025/2025-06-19-12-39-11.jpg",
-    label: "SF Arrival",
+    timestamp: "2025-06-20T19:06:12",
+    path: "2025/2025-06-20-19-06-12.jpg",
+    label: "SF Vibes",
     type: "image",
-    hint: "landed in San Francisco",
+    hint: "I love this city",
+    className: "object-[50%_60%]",
   },
   {
     timestamp: "2025-06-20T08:01:58",
@@ -303,12 +304,11 @@ const june: MediaItem[] = [
     hint: "summer solstice in SF",
   },
   {
-    timestamp: "2025-06-20T19:06:12",
-    path: "2025/2025-06-20-19-06-12.jpg",
-    label: "SF Vibes",
+    timestamp: "2025-06-19T12:39:11",
+    path: "2025/2025-06-19-12-39-11.jpg",
+    label: "",
     type: "image",
-    hint: "I love this city",
-    className: "object-[50%_60%]",
+    hint: "landed in San Francisco",
   },
   {
     timestamp: "2025-06-21T14:11:44",
@@ -1282,6 +1282,19 @@ export default function Page() {
           One last exam. One celebration dinner. Then I got on a plane.
         </p>
       </TextInterlude>
+
+      <Section className="max-w-4xl mx-auto px-4 md:px-8 py-8">
+        <div className="flex justify-center">
+          <div className="w-70 md:w-85">
+            <Polaroid
+              src={june[4].path}
+              alt={june[4].hint}
+              caption={june[4].label}
+              rotation={2}
+            />
+          </div>
+        </div>
+      </Section>
 
       {/* ==================== SF - THE TRIP ==================== */}
       <TextInterlude size="xl">
