@@ -34,6 +34,38 @@ export function VideoPlayer({
     return () => clearTimeout(timer);
   }, [hasInteracted]);
 
+  useEffect(() => {
+    const videoElement = videoRef.current;
+    if (!videoElement) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          // When video goes out of view (isIntersecting is false)
+          if (!entry.isIntersecting) {
+            setIsMuted((prevIsMuted) => {
+              // Only trigger update if currently unmuted
+              if (!prevIsMuted) {
+                if (videoRef.current) videoRef.current.muted = true;
+                return true;
+              }
+              return prevIsMuted;
+            });
+          }
+        });
+      },
+      {
+        threshold: 0.2, // Trigger when less than 20% of the video is visible
+      }
+    );
+
+    observer.observe(videoElement);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   const toggleMute = () => {
     if (videoRef.current) {
       const newMutedState = !isMuted;
@@ -51,7 +83,7 @@ export function VideoPlayer({
   return (
     <div className={cn("relative py-8", className)}>
       <div className="group relative">
-        <div className="absolute -inset-1 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md" />
+        <div className="absolute -inset-1 bg-linear-to-r from-primary/10 to-secondary/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md" />
         <div
           className={cn(
             "relative overflow-hidden rounded-lg border border-border/50 shadow-2xl bg-black",
@@ -65,14 +97,17 @@ export function VideoPlayer({
             loop
             muted={isMuted}
             playsInline
-            className={cn("w-full h-full opacity-90 transition-opacity duration-500", objectPosition)}
+            className={cn(
+              "w-full h-full opacity-90 transition-opacity duration-500",
+              objectPosition
+            )}
           />
 
           {/* Grain Overlay */}
-          <div 
+          <div
             className="absolute inset-0 opacity-[0.1] pointer-events-none mix-blend-overlay"
             style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`
+              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
             }}
           />
 
@@ -89,7 +124,7 @@ export function VideoPlayer({
             >
               <div className="flex flex-col items-center gap-3 text-white">
                 <div className="p-3 bg-white/10 rounded-full border border-white/20 backdrop-blur-md">
-                   <SoundOffIcon className="w-6 h-6" />
+                  <SoundOffIcon className="w-6 h-6" />
                 </div>
                 <span className="text-xs font-mono uppercase tracking-widest opacity-80">
                   Tap to unmute
@@ -126,9 +161,9 @@ export function VideoPlayer({
 
       {caption && (
         <div className="mt-4 flex flex-col items-center gap-2">
-           <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest">
-              // Video_Log
-           </span>
+          <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest">
+            {"// Video_Log"}
+          </span>
           <p className="text-center text-sm text-foreground/80 font-medium">
             {caption}
           </p>
