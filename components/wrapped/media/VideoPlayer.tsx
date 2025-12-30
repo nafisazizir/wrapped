@@ -49,72 +49,90 @@ export function VideoPlayer({
   };
 
   return (
-    <div className={cn("relative", className)}>
-      <div
-        className={cn(
-          "relative overflow-hidden rounded-sm",
-          aspectRatio
-        )}
-      >
-        <video
-          ref={videoRef}
-          src={src}
-          autoPlay
-          loop
-          muted={isMuted}
-          playsInline
-          className={cn("w-full h-full", objectPosition)}
-        />
+    <div className={cn("relative py-8", className)}>
+      <div className="group relative">
+        <div className="absolute -inset-1 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md" />
+        <div
+          className={cn(
+            "relative overflow-hidden rounded-lg border border-border/50 shadow-2xl bg-black",
+            aspectRatio
+          )}
+        >
+          <video
+            ref={videoRef}
+            src={src}
+            autoPlay
+            loop
+            muted={isMuted}
+            playsInline
+            className={cn("w-full h-full opacity-90 transition-opacity duration-500", objectPosition)}
+          />
 
-        {/* Initial overlay prompt */}
-        {showOverlay && (
-          <button
-            onClick={handleOverlayClick}
-            className={cn(
-              "absolute inset-0 flex items-center justify-center",
-              "bg-black/30 backdrop-blur-[2px]",
-              "transition-opacity duration-300",
-              "cursor-pointer"
-            )}
-          >
-            <div className="flex flex-col items-center gap-2 text-white">
-              <SoundOffIcon className="w-8 h-8 md:w-10 md:h-10" />
-              <span className="text-sm md:text-base font-medium">
-                Tap to unmute
-              </span>
-            </div>
-          </button>
-        )}
+          {/* Grain Overlay */}
+          <div 
+            className="absolute inset-0 opacity-[0.1] pointer-events-none mix-blend-overlay"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`
+            }}
+          />
 
-        {/* Persistent mute/unmute button */}
-        {!showOverlay && (
-          <button
-            onClick={toggleMute}
-            className={cn(
-              "absolute bottom-3 right-3 md:bottom-4 md:right-4",
-              "w-10 h-10 md:w-11 md:h-11",
-              "flex items-center justify-center",
-              "bg-black/50 hover:bg-black/70 backdrop-blur-sm",
-              "rounded-full",
-              "text-white",
-              "transition-all duration-200",
-              "cursor-pointer"
-            )}
-            aria-label={isMuted ? "Unmute video" : "Mute video"}
-          >
-            {isMuted ? (
-              <SoundOffIcon className="w-5 h-5" />
-            ) : (
-              <SoundOnIcon className="w-5 h-5" />
-            )}
-          </button>
-        )}
+          {/* Initial overlay prompt */}
+          {showOverlay && (
+            <button
+              onClick={handleOverlayClick}
+              className={cn(
+                "absolute inset-0 flex items-center justify-center",
+                "bg-black/40 backdrop-blur-[2px]",
+                "transition-opacity duration-300",
+                "cursor-pointer z-10"
+              )}
+            >
+              <div className="flex flex-col items-center gap-3 text-white">
+                <div className="p-3 bg-white/10 rounded-full border border-white/20 backdrop-blur-md">
+                   <SoundOffIcon className="w-6 h-6" />
+                </div>
+                <span className="text-xs font-mono uppercase tracking-widest opacity-80">
+                  Tap to unmute
+                </span>
+              </div>
+            </button>
+          )}
+
+          {/* Persistent mute/unmute button */}
+          {!showOverlay && (
+            <button
+              onClick={toggleMute}
+              className={cn(
+                "absolute bottom-4 right-4",
+                "w-10 h-10",
+                "flex items-center justify-center",
+                "bg-black/50 hover:bg-black/70 backdrop-blur-md border border-white/10",
+                "rounded-full",
+                "text-white",
+                "transition-all duration-200",
+                "cursor-pointer z-20"
+              )}
+              aria-label={isMuted ? "Unmute video" : "Mute video"}
+            >
+              {isMuted ? (
+                <SoundOffIcon className="w-4 h-4" />
+              ) : (
+                <SoundOnIcon className="w-4 h-4" />
+              )}
+            </button>
+          )}
+        </div>
       </div>
 
       {caption && (
-        <p className="text-center text-sm text-muted-foreground mt-4">
-          {caption}
-        </p>
+        <div className="mt-4 flex flex-col items-center gap-2">
+           <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest">
+              // Video_Log
+           </span>
+          <p className="text-center text-sm text-foreground/80 font-medium">
+            {caption}
+          </p>
+        </div>
       )}
     </div>
   );
@@ -127,7 +145,7 @@ function SoundOffIcon({ className }: { className?: string }) {
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth={2}
+      strokeWidth={1.5}
       strokeLinecap="round"
       strokeLinejoin="round"
       className={className}
@@ -146,7 +164,7 @@ function SoundOnIcon({ className }: { className?: string }) {
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth={2}
+      strokeWidth={1.5}
       strokeLinecap="round"
       strokeLinejoin="round"
       className={className}

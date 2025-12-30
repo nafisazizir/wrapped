@@ -1295,7 +1295,7 @@ export default function Page() {
       />
 
       <TextInterlude>
-        <p className="text-sm text-muted-foreground">
+        <p>
           I wrote about this trip.{" "}
           <a
             href="https://www.nafisazizi.com/blog/debrief-episode-1-crossing-impossible-distances"
@@ -1502,7 +1502,10 @@ export default function Page() {
       {/* ==================== AUGUST - NEW ZEALAND ==================== */}
       <TextInterlude size="xl" timeContext="August">
         <p className="text-muted-foreground">Then I flew to New Zealand.</p>
-        <p className="text-base text-muted-foreground mt-6 tracking-tight">
+      </TextInterlude>
+
+      <TextInterlude className="md:py-0">
+        <p>
           Part of the grad trip series.{" "}
           <a
             href="https://www.nafisazizi.com/blog/debrief-episode-2-finding-the-adventurer-within"
@@ -1753,7 +1756,7 @@ export default function Page() {
       />
 
       {/* ==================== CLOSING ==================== */}
-      <TextInterlude size="xl" className="py-24 md:py-32">
+      <TextInterlude size="xl" className="py-24 md:py-32" variant="light">
         <p className="text-center">
           From Brisbane to San Francisco.
           <br />
@@ -1767,7 +1770,6 @@ export default function Page() {
         <p className="text-center text-muted-foreground">
           It was too good to be true.
         </p>
-        
       </TextInterlude>
 
       <Footer />

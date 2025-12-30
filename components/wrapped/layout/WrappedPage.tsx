@@ -2,9 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { Section } from "./Section";
-import { TextReveal, FadeIn } from "../typography/TextReveal";
-import { useEffect, useState, useCallback } from "react";
-import Image from "next/image";
+import { FadeIn } from "../typography/TextReveal";
 
 interface WrappedPageProps {
   children: React.ReactNode;
@@ -15,12 +13,12 @@ export function WrappedPage({ children, className }: WrappedPageProps) {
   return (
     <main
       className={cn(
-        "min-h-screen bg-background text-foreground",
-        "selection:bg-primary selection:text-primary-foreground",
+        "min-h-screen bg-background text-foreground relative selection:bg-primary selection:text-primary-foreground",
         className
       )}
     >
-      {children}
+      <div className="fixed inset-0 z-0 pointer-events-none bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#333_1px,transparent_1px)] bg-[size:16px_16px] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-50" />
+      <div className="relative z-10">{children}</div>
     </main>
   );
 }
@@ -29,57 +27,7 @@ interface HeroProps {
   className?: string;
 }
 
-// Floating preview images data
-const previewImages = [
-  {
-    src: "/2025/2025-07-01-12-15-03.jpg",
-    rotation: -12,
-    position: "top-[12%] left-[5%] md:left-[8%]",
-    size: "w-20 md:w-28",
-    delay: 0.8,
-  },
-  {
-    src: "/2025/2025-08-08-13-53-52.jpg",
-    rotation: 8,
-    position: "top-[18%] right-[4%] md:right-[10%]",
-    size: "w-16 md:w-24",
-    delay: 1.0,
-  },
-  {
-    src: "/2025/2025-06-22-17-20-58.jpg",
-    rotation: -6,
-    position: "bottom-[22%] left-[3%] md:left-[12%]",
-    size: "w-18 md:w-26",
-    delay: 1.2,
-  },
-  {
-    src: "/2025/2025-07-17-17-36-00.JPG",
-    rotation: 15,
-    position: "bottom-[28%] right-[2%] md:right-[8%]",
-    size: "w-22 md:w-30",
-    delay: 1.4,
-  },
-];
-
 export function Hero({ className }: HeroProps) {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
-
-  const handleScroll = useCallback(() => {
-    setScrollY(window.scrollY);
-  }, []);
-
-  useEffect(() => {
-    // Trigger loaded state after mount via requestAnimationFrame to avoid sync setState
-    const frame = requestAnimationFrame(() => setIsLoaded(true));
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => {
-      cancelAnimationFrame(frame);
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [handleScroll]);
-
   return (
     <Section
       className={cn(
@@ -88,73 +36,65 @@ export function Hero({ className }: HeroProps) {
       )}
       animate={false}
     >
-      {/* Floating preview polaroids */}
-      {previewImages.map((img, index) => (
-        <div
-          key={index}
-          className={cn(
-            "absolute transition-all duration-1000 ease-out opacity-0 scale-75 pointer-events-none hidden md:block",
-            img.position,
-            img.size,
-            isLoaded && "opacity-40 scale-100 hover:opacity-60"
-          )}
-          style={{
-            transitionDelay: `${img.delay}s`,
-            transform: `rotate(${img.rotation}deg) translateY(${
-              scrollY * 0.1 * (index % 2 === 0 ? 1 : -1)
-            }px)`,
-          }}
-        >
-          <div className="bg-white p-1.5 shadow-lg rounded-sm">
-            <div className="relative w-full aspect-square">
-              <Image
-                src={img.src}
-                alt=""
-                fill
-                className="object-cover"
-                sizes="120px"
-                priority
-              />
+      {/* Decorative blurred spots */}
+      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl opacity-30" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/3 rounded-full blur-3xl opacity-30" />
+
+      <div className="text-center relative z-10 max-w-5xl mx-auto w-full">
+        {/* Simple Date/Time Badge */}
+        <FadeIn>
+          <div className="flex items-center justify-center gap-2 mb-12">
+            <div className="text-sm font-mono text-muted-foreground/60 tracking-widest uppercase">
+              <span className="mr-3">LOG.2025</span>
+              <span className="w-2 h-2 inline-block rounded-full bg-emerald-500 animate-pulse" />
             </div>
           </div>
-        </div>
-      ))}
-
-      {/* Main content */}
-      <div className="text-center relative z-10">
-        <FadeIn>
-          <p className="text-xs md:text-sm uppercase tracking-[0.4em] text-muted-foreground mb-6 md:mb-8">
-            A Year in Review
-          </p>
         </FadeIn>
 
-        <div className="flex flex-row w-full  justify-center font-mono text-[80px] sm:text-[120px] md:text-[200px] lg:text-[280px] xl:text-[350px] leading-none mb-0 p-0">
-          <TextReveal
-            as="h1"
-            className="font-mono text-[80px] sm:text-[120px] md:text-[200px] lg:text-[280px] xl:text-[350px] leading-none mb-0 p-0"
-            wordDelay={0.15}
-          >
-            &gt;2025
-          </TextReveal>{" "}
-          <span className="text-muted-foreground font-light cursor-blink leading-none">
-            |
-          </span>
+        <div className="relative py-8 md:py-16">
+          {/* Glitchy/Tech Title */}
+          <h1 className="font-mono text-[15vw] leading-none tracking-tighter font-bold select-none text-center">
+            <span className="inline-block hover:text-muted-foreground/50 transition-colors duration-300 transform hover:scale-105 cursor-default">
+              2
+            </span>
+            <span className="inline-block hover:text-muted-foreground/50 transition-colors duration-300 delay-75 transform hover:scale-105 cursor-default">
+              0
+            </span>
+            <span className="inline-block hover:text-muted-foreground/50 transition-colors duration-300 delay-100 transform hover:scale-105 cursor-default">
+              2
+            </span>
+            <span className="inline-block hover:text-muted-foreground/50 transition-colors duration-300 delay-150 transform hover:scale-105 cursor-default">
+              5
+            </span>
+            <span className="text-primary animate-[pulse_1s_ease-in-out_infinite] ml-2 md:ml-4">
+              _
+            </span>
+          </h1>
         </div>
 
-        <FadeIn delay={0.4}>
-          <p className="text-lg md:text-xl lg:text-2xl font-medium tracking-tight text-foreground/80 mb-10 md:mb-12">
-            Life Wrapped
-          </p>
-        </FadeIn>
-
-        <FadeIn delay={0.6}>
-          <div className="max-w-md md:max-w-lg mx-auto space-y-0">
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              A collection of moments, places, and people that defined my year.
-              From Brisbane to the world.
+        <FadeIn delay={1.5}>
+          <div className="mt-12 md:mt-16 max-w-xl mx-auto space-y-6 px-4">
+            <p className="text-lg md:text-xl font-medium text-foreground/90 tracking-tight">
+              The year I crossed oceans and climbed mountains.
             </p>
           </div>
         </FadeIn>
+      </div>
+
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce opacity-50">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+        </svg>
       </div>
     </Section>
   );
@@ -169,16 +109,18 @@ export function Footer({ className }: FooterProps) {
     <footer
       className={cn("text-center mt-24 overflow-hidden mb-0 pb-0", className)}
     >
-      <p className="mt-10 text-base font-medium text-center text-muted-foreground font-mono">
+      <div className="border-t border-border/40 w-full max-w-xl mx-auto mb-12" />
+
+      <p className="mt-10 text-base font-medium text-center text-muted-foreground font-mono tracking-tight">
         ON TO THE NEXT ONE.
       </p>
 
-      <span className="flex flex-row w-full  justify-center font-mono text-[80px] sm:text-[120px] md:text-[200px] lg:text-[280px] xl:text-[350px] leading-none mb-0 p-0">
+      <div className="flex flex-row w-full justify-center font-mono text-[12vw] leading-none mb-0 p-0 py-12 md:py-20 select-none opacity-80 hover:opacity-100 transition-opacity duration-500">
         &gt;2026
-        <span className="text-muted-foreground font-light cursor-blink leading-none">
+        <span className="text-muted-foreground font-light cursor-blink leading-none ml-2 md:ml-4">
           |
         </span>
-      </span>
+      </div>
     </footer>
   );
 }
