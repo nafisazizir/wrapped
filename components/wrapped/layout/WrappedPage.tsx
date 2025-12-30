@@ -24,34 +24,43 @@ export function WrappedPage({ children, className }: WrappedPageProps) {
 }
 
 interface HeroProps {
-  title?: string;
-  subtitle?: string;
   className?: string;
 }
 
-export function Hero({ title = "2025", subtitle, className }: HeroProps) {
+export function Hero({ className }: HeroProps) {
   return (
     <Section
       className={cn(
-        "min-h-[60vh] flex flex-col items-center justify-center px-6",
+        "min-h-screen flex flex-col items-center justify-center px-6",
         className
       )}
       animate={false}
     >
-      <TextReveal
-        as="h1"
-        className="text-7xl md:text-9xl font-light tracking-tighter mb-4"
-        wordDelay={0.15}
-      >
-        {title}
-      </TextReveal>
-      {subtitle && (
-        <FadeIn delay={0.4}>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-md text-center">
-            {subtitle}
+      <div className="text-center">
+        <FadeIn>
+          <p className="text-sm md:text-base uppercase tracking-[0.3em] text-muted-foreground mb-4">
+            The Year
           </p>
         </FadeIn>
-      )}
+        <TextReveal
+          as="h1"
+          className="text-8xl md:text-[12rem] font-semibold tracking-tighter leading-none mb-4"
+          wordDelay={0.15}
+        >
+          2025
+        </TextReveal>
+        <FadeIn delay={0.3}>
+          <p className="text-xl md:text-2xl font-medium tracking-tight mb-8">
+            Life Wrapped
+          </p>
+        </FadeIn>
+        <FadeIn delay={0.5}>
+          <p className="text-base md:text-lg text-muted-foreground max-w-lg mx-auto leading-relaxed">
+            A collection of moments, places, and people that defined my year.
+            From Brisbane to the world.
+          </p>
+        </FadeIn>
+      </div>
     </Section>
   );
 }
@@ -62,15 +71,9 @@ interface FooterProps {
 
 export function Footer({ className }: FooterProps) {
   return (
-    <footer
-      className={cn(
-        "py-20 md:py-32 text-center px-6",
-        "border-t border-border",
-        className
-      )}
-    >
-      <p className="text-muted-foreground text-sm">
-        Made with memories from 2025
+    <footer className="text-center mt-24">
+      <p className="font-mono text-[350px] leading-tight mb-0 p-0">
+        &gt;2026<span className="text-muted-foreground font-light cursor-blink">|</span>
       </p>
     </footer>
   );

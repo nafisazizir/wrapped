@@ -92,7 +92,7 @@ export function FeatureMoment({
           {headline && (
             <TextReveal
               as="h2"
-              className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight leading-tight mb-6"
+              className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight leading-none mb-6"
             >
               {headline}
             </TextReveal>

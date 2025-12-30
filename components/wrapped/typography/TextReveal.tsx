@@ -30,10 +30,11 @@ export function TextReveal({
       className={cn("overflow-hidden", className)}
     >
       {words.map((word, index) => (
-        <span key={index} className="inline-block overflow-hidden mr-[0.25em]">
+        <span key={index} className="inline-block overflow-hidden">
           <span
             className={cn(
               "inline-block transition-all duration-500 ease-out",
+              index !== words.length - 1 ? 'mr-2.5' : '',
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-full"

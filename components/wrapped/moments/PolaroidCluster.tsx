@@ -23,7 +23,7 @@ export function PolaroidCluster({ items, className }: PolaroidClusterProps) {
       {items.slice(0, 5).map((item, index) => (
         <div
           key={item.path}
-          className="w-[140px] md:w-[180px] lg:w-[220px]"
+          className="w-35 md:w-45 lg:w-55"
           style={{
             transform: `translateY(${index % 2 === 0 ? 0 : 12}px)`,
           }}
@@ -31,7 +31,7 @@ export function PolaroidCluster({ items, className }: PolaroidClusterProps) {
           <Polaroid
             src={item.path}
             alt={item.hint || `Memory ${index + 1}`}
-            caption={item.hint?.slice(0, 30)}
+            caption={item.label || undefined}
             rotation={rotations[index % rotations.length]}
             priority={index < 2}
           />

@@ -44,7 +44,7 @@ export function Polaroid({
         />
       </div>
       {caption && (
-        <p className="absolute bottom-1.5 left-0 right-0 text-center text-[10px] md:text-xs font-mono text-muted-foreground px-1.5 leading-tight line-clamp-2">
+        <p className="absolute bottom-2.5 md:bottom-2 left-0 right-0 text-center text-sm md:text-base text-muted-foreground/80 px-2 font-caveat">
           {caption}
         </p>
       )}
