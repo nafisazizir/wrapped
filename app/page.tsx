@@ -8,6 +8,7 @@ import { PolaroidCluster } from "@/components/wrapped/moments/PolaroidCluster";
 import { FeatureMoment } from "@/components/wrapped/moments/FeatureMoment";
 import { Section } from "@/components/wrapped/layout/Section";
 import { Polaroid } from "@/components/wrapped/decorative/Polaroid";
+import { VideoPlayer } from "@/components/wrapped/media/VideoPlayer";
 import type { MediaItem } from "@/components/wrapped/data/types";
 
 // ============================================================================
@@ -1355,19 +1356,13 @@ export default function Page() {
       <PolaroidCluster items={julyTahoe.slice(0, 3)} />
 
       <Section className="max-w-4xl mx-auto px-4 md:px-8 py-8 md:pt-14">
-        <div className="relative aspect-9/16 md:aspect-video max-w-md md:max-w-2xl mx-auto overflow-hidden rounded-sm">
-          <video
-            src="/2025/2025-07-04-21-42-00.MOV"
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover md:object-[50%_65%]"
-          />
-        </div>
-        <p className="text-center text-sm text-muted-foreground mt-4">
-          4th of July fireworks at Lake Tahoe
-        </p>
+        <VideoPlayer
+          src="/2025/2025-07-04-21-42-00.MOV"
+          className="max-w-md md:max-w-2xl mx-auto"
+          aspectRatio="aspect-9/16 md:aspect-video"
+          objectPosition="object-cover md:object-[50%_65%]"
+          caption="4th of July fireworks at Lake Tahoe"
+        />
       </Section>
 
       <TextInterlude>
@@ -1772,6 +1767,7 @@ export default function Page() {
         <p className="text-center text-muted-foreground">
           It was too good to be true.
         </p>
+        
       </TextInterlude>
 
       <Footer />
