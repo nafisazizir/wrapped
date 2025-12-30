@@ -43,6 +43,7 @@ export function PolaroidCluster({ items, className }: PolaroidClusterProps) {
               rotation={rotations[index % rotations.length]}
               priority={index < 2}
               className="shadow-md hover:shadow-2xl"
+              imageClassName={item.className}
             />
           </div>
         ))}

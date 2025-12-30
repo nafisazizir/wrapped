@@ -15,6 +15,7 @@ interface FeatureMomentProps {
   imagePosition?: "left" | "right";
   layout?: "split" | "full" | "editorial";
   objectPosition?: "top" | "center" | "bottom" | "left" | "right";
+  imageClassName?: string;
 }
 
 export function FeatureMoment({
@@ -27,6 +28,7 @@ export function FeatureMoment({
   imagePosition = "left",
   layout = "editorial",
   objectPosition = "center",
+  imageClassName,
 }: FeatureMomentProps) {
   const objectPositionClass = {
     top: "object-top",
@@ -48,7 +50,8 @@ export function FeatureMoment({
               priority={priority}
               className={cn(
                 "object-cover grayscale-[0.1] hover:grayscale-0 transition-all duration-700",
-                objectPositionClass
+                objectPositionClass,
+                imageClassName
               )}
               sizes="95vw"
             />
@@ -101,7 +104,8 @@ export function FeatureMoment({
               priority={priority}
               className={cn(
                 "object-cover transition-transform duration-700 group-hover:scale-105",
-                objectPositionClass
+                objectPositionClass,
+                imageClassName
               )}
               sizes="(max-width: 768px) 100vw, 50vw"
             />

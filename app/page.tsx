@@ -67,6 +67,7 @@ const february: MediaItem[] = [
     label: "Moving Day",
     type: "image",
     hint: "leaving the apartment",
+    className: "object-[50%_20%]",
   },
   {
     timestamp: "2025-02-07T10:42:01",
@@ -307,6 +308,7 @@ const june: MediaItem[] = [
     label: "SF Vibes",
     type: "image",
     hint: "I love this city",
+    className: "object-[50%_60%]",
   },
   {
     timestamp: "2025-06-21T14:11:44",
@@ -318,7 +320,7 @@ const june: MediaItem[] = [
   {
     timestamp: "2025-06-21T18:33:40",
     path: "2025/2025-06-21-18-33-40.jpg",
-    label: "Best Quote",
+    label: "Best Wall",
     type: "image",
     hint: "best quote in SF",
   },
@@ -463,6 +465,7 @@ const julySF: MediaItem[] = [
     label: "SF Above",
     type: "image",
     hint: "SF from up above",
+    className: "object-[50%_100%]",
   },
   {
     timestamp: "2025-07-07T13:59:11",
@@ -822,6 +825,7 @@ const september: MediaItem[] = [
     label: "",
     type: "image",
     hint: "grad pic",
+    className: "object-[50%_65%]",
   },
   {
     timestamp: "2025-09-10T14:29:33",
@@ -829,6 +833,7 @@ const september: MediaItem[] = [
     label: "",
     type: "image",
     hint: "another grad pic",
+    className: "object-[50%_80%]",
   },
   {
     timestamp: "2025-09-10T19:20:23",
@@ -1074,13 +1079,13 @@ export default function Page() {
         </p>
       </TextInterlude>
 
-      <FeatureMoment
+      {/* <FeatureMoment
         src={january[5].path}
         alt="Monitor setup"
         headline="Peak comfort engineering"
         description="Bored. Moved the monitor to bed. Movies hit different lying down."
         imagePosition="right"
-      />
+      /> */}
 
       {/* ==================== FEBRUARY ==================== */}
       <TextInterlude size="lg" timeContext="February">
@@ -1097,7 +1102,7 @@ export default function Page() {
       </TextInterlude>
 
       <FeatureMoment
-        src={february[4].path}
+        src={february[5].path}
         alt="Coffee shop"
         headline="Finding new spots"
         description="Exploring the neighborhood. Found a new favorite coffee shop within weeks."
@@ -1528,7 +1533,7 @@ export default function Page() {
       </TextInterlude>
 
       <FeatureMoment
-        src={august[2].path}
+        src={"/2025/2025-08-19-15-45-11.jpg"}
         alt="First snow"
         headline="First time seeing snow"
         description="With my own eyes. Not on a screen. Real snow. If I didn't go while I had the chance, I knew I'd regret it forever."
@@ -1643,6 +1648,7 @@ export default function Page() {
         imagePosition="right"
         layout="full"
         objectPosition="center"
+        imageClassName="object-[50%_80%]"
       />
 
       <FeatureMoment

@@ -10,6 +10,7 @@ interface PolaroidProps {
   rotation?: number;
   className?: string;
   priority?: boolean;
+  imageClassName?: string;
 }
 
 export function Polaroid({
@@ -19,6 +20,7 @@ export function Polaroid({
   rotation = 0,
   className,
   priority = false,
+  imageClassName
 }: PolaroidProps) {
   return (
     <div
@@ -37,7 +39,7 @@ export function Polaroid({
           alt={alt}
           fill
           priority={priority}
-          className="object-cover transition-transform duration-700 group-hover:scale-110"
+          className={cn("object-cover transition-transform duration-700 group-hover:scale-110", imageClassName)}
           sizes="(max-width: 768px) 50vw, 300px"
         />
         {/* Grain Overlay */}

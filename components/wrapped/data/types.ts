@@ -4,6 +4,7 @@ export interface MediaItem {
   label: string;
   type: "image" | "video";
   hint: string;
+  className?: string;
 }
 
 export interface MomentConfig {
