@@ -21,6 +21,13 @@ const caveat = Caveat({
 export const metadata: Metadata = {
   title: "2025 Wrapped",
   description: "A year in review",
+  openGraph: {
+    images: ["/thumbnail.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/thumbnail.png"],
+  },
 };
 
 export default function RootLayout({
