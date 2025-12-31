@@ -9,6 +9,7 @@ import { FeatureMoment } from "@/components/wrapped/moments/FeatureMoment";
 import { Section } from "@/components/wrapped/layout/Section";
 import { Polaroid } from "@/components/wrapped/decorative/Polaroid";
 import { VideoPlayer } from "@/components/wrapped/media/VideoPlayer";
+import { BlogLinkTooltip } from "@/components/wrapped/ui/BlogLinkTooltip";
 import type { MediaItem } from "@/components/wrapped/data/types";
 
 // ============================================================================
@@ -1315,14 +1316,12 @@ export default function Page() {
       <TextInterlude>
         <p>
           I wrote about this trip.{" "}
-          <a
-            href="https://www.nafisazizi.com/blog/debrief-episode-1-crossing-impossible-distances"
-            target="_blank"
-            rel="noopener noreferrer"
+          <BlogLinkTooltip
+            blogKey="debrief-episode-1-crossing-impossible-distances"
             className="underline underline-offset-4 hover:text-foreground transition-colors"
           >
             Read the full story →
-          </a>
+          </BlogLinkTooltip>
         </p>
       </TextInterlude>
 
@@ -1525,23 +1524,19 @@ export default function Page() {
       <TextInterlude className="md:py-0">
         <p>
           Part of the grad trip series.{" "}
-          <a
-            href="https://www.nafisazizi.com/blog/debrief-episode-2-finding-the-adventurer-within"
-            target="_blank"
-            rel="noopener noreferrer"
+          <BlogLinkTooltip
+            blogKey="debrief-episode-2-finding-the-adventurer-within"
             className="underline underline-offset-4 hover:text-foreground transition-colors"
           >
             The adventure
-          </a>
+          </BlogLinkTooltip>
           {" · "}
-          <a
-            href="https://www.nafisazizi.com/blog/debrief-episode-3-hostel-chronicles"
-            target="_blank"
-            rel="noopener noreferrer"
+          <BlogLinkTooltip
+            blogKey="debrief-episode-3-hostel-chronicles"
             className="underline underline-offset-4 hover:text-foreground transition-colors"
           >
             The hostels
-          </a>
+          </BlogLinkTooltip>
         </p>
       </TextInterlude>
 
