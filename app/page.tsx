@@ -1434,7 +1434,7 @@ export default function Page() {
 
       <Section className="max-w-4xl mx-auto px-4 md:px-8 py-8 md:pt-14">
         <VideoPlayer
-          src="/2025/2025-07-04-21-42-00.MOV"
+          src="/2025/2025-07-04-21-42-00.mp4"
           className="max-w-md md:max-w-2xl mx-auto"
           aspectRatio="aspect-9/16 md:aspect-video"
           objectPosition="object-cover md:object-[50%_65%]"
@@ -1749,7 +1749,7 @@ export default function Page() {
 
       <Section className="max-w-4xl mx-auto px-4 md:px-8 py-8 md:py-14">
         <VideoPlayer
-          src="/2025/2025-08-21-14-52-49.mov"
+          src="/2025/2025-08-21-14-52-49.mp4"
           className="max-w-3xl mx-auto"
           aspectRatio="aspect-video"
           objectPosition="object-cover"
