@@ -743,7 +743,7 @@ const august: MediaItem[] = [
   {
     timestamp: "2025-08-15T12:10:27",
     path: "2025/2025-08-15-12-10-27.jpg",
-    label: "Hooker Me",
+    label: "Hooker Valley",
     type: "image",
     hint: "Hooker Valley with me",
   },
@@ -1583,7 +1583,7 @@ export default function Page() {
 
       <TextInterlude className="md:py-0">
         <p>
-          Part of the grad trip series.{" "}
+          Part of the grad trip series. Read more{" "}
           <BlogLinkTooltip
             blogKey="debrief-episode-2-finding-the-adventurer-within"
             className="underline underline-offset-4 hover:text-foreground transition-colors"
@@ -1655,15 +1655,14 @@ export default function Page() {
         </div>
       </Section>
 
-      <FeatureMoment
-        src={august[18].path}
-        alt="Milky Way"
-        headline="The best starry night"
-        description="Mt Cook parking lot. So dark. So bright. The Milky Way was right there. Best night sky of my life."
-        imagePosition="left"
-      />
-
       <PolaroidCluster items={august.slice(14, 17)} />
+
+      <FeatureMoment
+        src={august[21].path}
+        alt="Hooker Valley"
+        imagePosition="right"
+        layout="full"
+      />
 
       <FeatureMoment
         src={august[17].path}
@@ -1673,7 +1672,7 @@ export default function Page() {
         imagePosition="right"
       />
 
-      <PolaroidCluster items={august.slice(20, 23)} />
+      <PolaroidCluster items={[august[20], august[22]]} />
 
       <TextInterlude>
         <p>
@@ -1681,6 +1680,15 @@ export default function Page() {
           Two weeks of non-stop wonder.
         </p>
       </TextInterlude>
+
+      <FeatureMoment
+        src={august[24].path}
+        alt="Milky Way"
+        headline="The best starry night"
+        description="So dark. So bright. The Milky Way was right there. Only with naked eyes. Best night sky of my life."
+        imagePosition="left"
+        layout="full"
+      />
 
       <Section className="max-w-5xl mx-auto px-4 md:px-8 py-8">
         <div className="flex flex-wrap justify-center gap-6 md:gap-8">
@@ -1694,9 +1702,9 @@ export default function Page() {
           </div>
           <div className="w-50 md:w-65 mt-6">
             <Polaroid
-              src={august[24].path}
-              alt={august[24].hint}
-              caption={august[24].label}
+              src={august[18].path}
+              alt={august[18].hint}
+              caption={august[18].label}
               rotation={-3}
             />
           </div>
@@ -1718,6 +1726,16 @@ export default function Page() {
         objectPosition="center"
         imageClassName="object-[50%_80%]"
       />
+
+      <Section className="max-w-4xl mx-auto px-4 md:px-8 py-8 md:py-14">
+        <VideoPlayer
+          src="/2025/2025-08-21-14-52-49.mov"
+          className="max-w-3xl mx-auto"
+          aspectRatio="aspect-video"
+          objectPosition="object-cover"
+          caption="Solo trip through the South Island"
+        />
+      </Section>
 
       <FeatureMoment
         src={august[27].path}
