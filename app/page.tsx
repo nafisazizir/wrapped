@@ -362,7 +362,7 @@ const june: MediaItem[] = [
   },
   {
     timestamp: "2025-06-30T15:42:00",
-    path: "2025/2025-06-30-15-42-00.JPG",
+    path: "2025/2025-06-30-15-42-00.jpg",
     label: "Made It",
     type: "image",
     hint: "Upper Yosemite Falls",
@@ -386,7 +386,7 @@ const julyYosemite: MediaItem[] = [
   },
   {
     timestamp: "2025-07-01T12:42:00",
-    path: "2025/2025-07-01-12-42-00.JPG",
+    path: "2025/2025-07-01-12-42-00.jpg",
     label: "Summit",
     type: "image",
     hint: "summit shot",
@@ -431,7 +431,7 @@ const julyTahoe: MediaItem[] = [
   },
   {
     timestamp: "2025-07-04T22:42:00",
-    path: "2025/2025-07-04-22-42-00.JPG",
+    path: "2025/2025-07-04-22-42-00.jpg",
     label: "Applebees",
     type: "image",
     hint: "the full American experience",
@@ -529,7 +529,7 @@ const julyAustralia: MediaItem[] = [
   },
   {
     timestamp: "2025-07-17T17:36:00",
-    path: "2025/2025-07-17-17-36-00.JPG",
+    path: "2025/2025-07-17-17-36-00.jpg",
     label: "Graduation",
     type: "image",
     hint: "Graduation at UQ",
