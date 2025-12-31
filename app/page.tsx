@@ -110,7 +110,7 @@ const february: MediaItem[] = [
     path: "2025/2025-02-28-18-05-54.jpg",
     label: "Neighbor Note",
     type: "image",
-    hint: "ramadan notice to neighbors",
+    hint: "Ramadhan notice to neighbors",
   },
 ];
 
@@ -120,7 +120,7 @@ const march: MediaItem[] = [
     path: "2025/2025-03-01-04-21-37.jpg",
     label: "First Sahur",
     type: "image",
-    hint: "first sahur of ramadan",
+    hint: "first sahur of Ramadhan",
   },
   {
     timestamp: "2025-03-04T19:17:50",
@@ -1125,7 +1125,7 @@ export default function Page() {
 
       <TextInterlude>
         <p>
-          The day before Ramadan, we wrote letters to our neighbors about the
+          The day before Ramadhan, we wrote letters to our neighbors about the
           early morning noise. New place, new community.
         </p>
       </TextInterlude>
@@ -1305,6 +1305,15 @@ export default function Page() {
       </TextInterlude>
 
       <FeatureMoment
+        src={"/2025/2025-06-24-12-42-00.jpg"}
+        alt="SF arrival"
+        imagePosition="left"
+        layout="full"
+        imageClassName="md:object-[50%_90%]"
+        priority
+      />
+
+      <FeatureMoment
         src={june[5].path}
         alt="SF arrival"
         headline="San Francisco"
@@ -1324,6 +1333,57 @@ export default function Page() {
           </BlogLinkTooltip>
         </p>
       </TextInterlude>
+
+      {/* ==================== SF - TECH SCENE ==================== */}
+      <TextInterlude>
+        <p>
+          I came here to learn. To see where the future was being built. Turns
+          out, it&apos;s plastered on every billboard, wrapped around every bus,
+          glowing in every subway station.
+        </p>
+      </TextInterlude>
+
+      <PolaroidCluster
+        items={[
+          {
+            path: "/2025/2025-06-24-12-42-01.jpg",
+            label: "",
+            hint: "Skyscraper",
+            type: "image",
+            timestamp: "",
+          },
+          {
+            path: "2025/2025-06-28-13-26-57.jpg",
+            label: "10x Engineer",
+            hint: "Codegen billboard",
+            type: "image",
+            timestamp: "",
+          },
+          {
+            path: "2025/2025-06-27-16-07-51.jpg",
+            label: "Even the buses",
+            hint: "Sentry ad",
+            type: "image",
+            timestamp: "",
+          },
+          {
+            path: "2025/2025-06-23-12-09-51.jpg",
+            label: "PostHog 🦶🏻!",
+            hint: "PostHog ad",
+            type: "image",
+            timestamp: "",
+          },
+        ]}
+      />
+
+      <FeatureMoment
+        src={"2025/2025-06-29-17-57-55.jpg"}
+        alt="Nebius On The Highway"
+        imagePosition="left"
+        layout="full"
+        imageClassName="md:object-[50%_60%]"
+        priority
+      />
 
       <PolaroidCluster items={june.slice(6, 11)} />
 
