@@ -344,7 +344,7 @@ const june: MediaItem[] = [
     path: "2025/2025-06-25-14-49-02.jpg",
     label: "Berkeley",
     type: "image",
-    hint: "company event with Patrick",
+    hint: "tagged along to a company event",
   },
   {
     timestamp: "2025-06-30T13:37:04",
@@ -363,7 +363,7 @@ const june: MediaItem[] = [
   {
     timestamp: "2025-06-30T15:42:00",
     path: "2025/2025-06-30-15-42-00.JPG",
-    label: "With Patrick",
+    label: "Made It",
     type: "image",
     hint: "Upper Yosemite Falls",
   },
@@ -389,7 +389,7 @@ const julyYosemite: MediaItem[] = [
     path: "2025/2025-07-01-12-42-00.JPG",
     label: "Summit",
     type: "image",
-    hint: "Half Dome with Patrick",
+    hint: "summit shot",
   },
   {
     timestamp: "2025-07-01T12:54:20",
@@ -434,7 +434,7 @@ const julyTahoe: MediaItem[] = [
     path: "2025/2025-07-04-22-42-00.JPG",
     label: "Applebees",
     type: "image",
-    hint: "Patrick took me, I hated it",
+    hint: "the full American experience",
   },
   {
     timestamp: "2025-07-05T12:34:09",
@@ -485,7 +485,7 @@ const julySF: MediaItem[] = [
   {
     timestamp: "2025-07-09T10:47:12",
     path: "2025/2025-07-09-10-47-12.jpg",
-    label: "Michael!",
+    label: "Overdue Catchup",
     type: "image",
     hint: "catchup from Singapore days",
   },
@@ -508,7 +508,7 @@ const julySF: MediaItem[] = [
     path: "2025/2025-07-10-23-29-11.jpg",
     label: "Goodbye SF",
     type: "image",
-    hint: "emotional departure",
+    hint: "last night in the city",
   },
 ];
 
@@ -567,7 +567,7 @@ const julyAustralia: MediaItem[] = [
     path: "2025/2025-07-29-14-36-14.jpg",
     label: "Fabulous",
     type: "image",
-    hint: "just fabulous",
+    hint: "unreal",
   },
   {
     timestamp: "2025-07-29T16:16:32",
@@ -619,7 +619,7 @@ const august: MediaItem[] = [
     path: "2025/2025-08-08-14-05-56.jpg",
     label: "Grateful",
     type: "image",
-    hint: "grateful to be here",
+    hint: "can't believe I'm here",
   },
   {
     timestamp: "2025-08-08T18:14:34",
@@ -1167,7 +1167,7 @@ export default function Page() {
         src={march[2].path}
         alt="Buka bersama"
         headline="Buka bersama"
-        description="Hosted iftar with friends at our new place. It's still unfurnished, sitting on the floor, full of food, so was the heart."
+        description="Hosted iftar at our new place. Still unfurnished. Sat on the floor. Plenty of food."
         imagePosition="right"
       />
 
@@ -1317,7 +1317,7 @@ export default function Page() {
         src={june[5].path}
         alt="SF arrival"
         headline="San Francisco"
-        description="Crashing at Patrick's place. Living room became my bedroom. The gap between wanting something and achieving it isn't as wide as it seems."
+        description="Crashed on a mate's couch. Living room became my bedroom. Didn't think I'd actually make it here."
         imagePosition="left"
         priority
       />
@@ -1398,7 +1398,7 @@ export default function Page() {
         src={june[14].path}
         alt="Yosemite"
         headline="Road trip to Yosemite"
-        description="Patrick drove. I was already getting sick. COVID, probably. But we made it to Upper Yosemite Falls."
+        description="He drove. I was already getting sick. COVID, probably. But we made it to Upper Yosemite Falls."
         imagePosition="right"
       />
 
@@ -1411,7 +1411,7 @@ export default function Page() {
         src={julyYosemite[1].path}
         alt="Half Dome"
         headline="I made it"
-        description="Sick. Probably COVID. Body weak, out of breath, coughing. Patrick went ahead. Then I encountered a bear on the trail, alone. I didn't think I'd make it past halfway. But I did."
+        description="Sick. Probably COVID. Body weak, out of breath, coughing. We split up past midway. Then I encountered a bear on the trail, alone. Didn't think I'd make it past halfway. But I did."
         imagePosition="left"
         layout="full"
       />
@@ -1445,8 +1445,8 @@ export default function Page() {
       <TextInterlude>
         <p>
           Summer in Tahoe was freezing. Everyone on the beach in puffer jackets.
-          Patrick took me to Applebees after the fireworks, he said it&apos;s
-          part of learning the American culture. I hated it.
+          Had to get the full American experience after the fireworks. So
+          naturally, Applebees was on the agenda.
         </p>
       </TextInterlude>
 
@@ -1504,8 +1504,8 @@ export default function Page() {
 
       <TextInterlude>
         <p>
-          Leaving SF was emotional. Never thought I could pull off a trip like
-          this. Still don&apos;t know how I afforded it.
+          Leaving SF was harder than expected. Never thought I&apos;d pull off a
+          trip like this. Still don&apos;t know how I afforded it.
         </p>
       </TextInterlude>
 
@@ -1624,7 +1624,7 @@ export default function Page() {
         src={"/2025/2025-08-19-15-45-11.jpg"}
         alt="First snow"
         headline="First time seeing snow"
-        description="With my own eyes. Not on a screen. Real snow. If I didn't go while I had the chance, I knew I'd regret it forever."
+        description="With my own eyes. Not on a screen. Real snow. Had to go while I still could."
         imagePosition="left"
       />
 
@@ -1641,7 +1641,7 @@ export default function Page() {
         src={august[10].path}
         alt="Milford Sound"
         headline="Milford Sound"
-        description="Didn't take many photos here. Just sat and watched. Some moments are better lived than captured."
+        description="Didn't take many photos here. Just sat and watched. Wasn't trying to capture it."
         imagePosition="right"
       />
 
@@ -1688,7 +1688,7 @@ export default function Page() {
         src={august[17].path}
         alt="Hooker Valley"
         headline="Blown away"
-        description="There's something about hiking that connects you to a place unlike other activities. This was one of those moments."
+        description="Hiking does something to you. This was one of those moments."
         imagePosition="right"
       />
 
@@ -1705,7 +1705,7 @@ export default function Page() {
         src={august[24].path}
         alt="Milky Way"
         headline="The best starry night"
-        description="So dark. So bright. The Milky Way was right there. Only with naked eyes. Best night sky of my life."
+        description="So dark. So bright. The Milky Way was right there. Just the naked eye. Best night sky of my life."
         imagePosition="left"
         layout="full"
       />
@@ -1761,7 +1761,7 @@ export default function Page() {
         src={august[27].path}
         alt="Goodbye Queenstown"
         headline="Goodbye Queenstown"
-        description="Two weeks felt like a lifetime. Left a piece of myself in the Southern Alps."
+        description="Two weeks felt like a lifetime. Hard to leave the Southern Alps behind."
         imagePosition="right"
       />
 
@@ -1777,10 +1777,7 @@ export default function Page() {
       <PolaroidCluster items={[august[29], september[0]]} />
 
       <TextInterlude>
-        <p>
-          No better way to decompress than a quick camping trip with friends.
-          Short but sweet.
-        </p>
+        <p>Quick camping trip with the boys. Good reset.</p>
       </TextInterlude>
 
       <FeatureMoment
