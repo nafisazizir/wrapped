@@ -1745,16 +1745,29 @@ export default function Page() {
         imagePosition="right"
       />
 
-      {/* ==================== SEPTEMBER ==================== */}
-      <TextInterlude size="lg" timeContext="September">
-        <p>Back to Indonesia. Time for graduation number two.</p>
+      {/* ==================== BACK HOME - CAMPING ==================== */}
+      <TextInterlude size="xl">
+        <p className="text-muted-foreground">
+          Then I flew back to Indonesia.
+          <br />
+          Back to hometown. Back to family and friends.
+        </p>
+      </TextInterlude>
+
+      <PolaroidCluster items={[august[29], september[0]]} />
+
+      <TextInterlude>
+        <p>
+          No better way to decompress than a quick camping trip with friends.
+          Short but sweet.
+        </p>
       </TextInterlude>
 
       <FeatureMoment
         src={september[1].path}
         alt="UI Graduation"
         headline="Graduated. Again."
-        description="UI this time. Different country, same feeling. Two degrees in one year."
+        description="UI this time. Graduation number two. Different country, same feeling. Two degrees in one year."
         imagePosition="left"
         layout="full"
       />
@@ -1763,8 +1776,9 @@ export default function Page() {
 
       <TextInterlude>
         <p>
-          Caught up with Jakarta friends. High school crew. Late night talks
-          with no filter.
+          Being back meant catching up with everyone. Jakarta friends who are
+          still studying. High school crew scattered across the city. Late night
+          talks with no filter.
         </p>
       </TextInterlude>
 
@@ -1791,8 +1805,8 @@ export default function Page() {
 
       <TextInterlude>
         <p>
-          Three on a motorbike at 2am. 4am breakfast. The kind of goodbye that
-          stays with you.
+          Three on a motorbike at 2am. 4am breakfast before my flight. The kind
+          of hometown goodbye that stays with you.
         </p>
       </TextInterlude>
 
