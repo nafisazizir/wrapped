@@ -1534,12 +1534,12 @@ export default function Page() {
         src={julyAustralia[2].path}
         alt="Graduation"
         headline="Graduated"
-        description="Four years of work. One ceremony. Family in the crowd. The Brisbane gang showed up. This one meant everything."
+        description="Four years of work. One ceremony. Family in the crowd. This one meant everything."
         imagePosition="left"
         layout="full"
       />
 
-      <Section className="max-w-4xl mx-auto px-4 md:px-8 py-8">
+      {/* <Section className="max-w-4xl mx-auto px-4 md:px-8 py-8">
         <div className="flex justify-center">
           <div className="w-70 md:w-85">
             <Polaroid
@@ -1550,7 +1550,27 @@ export default function Page() {
             />
           </div>
         </div>
-      </Section>
+      </Section> */}
+
+      <PolaroidCluster
+        items={[
+          {
+            timestamp: "2025-07-17-18-40-00",
+            path: "2025/2025-07-17-18-40-00.jpg",
+            label: "",
+            type: "image",
+            hint: "",
+          },
+          julyAustralia[3],
+          {
+            timestamp: "2025-07-13T17:05:46",
+            path: "2025/2025-07-17-18-45-00.jpg",
+            label: "",
+            type: "image",
+            hint: "",
+          },
+        ]}
+      />
 
       <TextInterlude>
         <p>
@@ -1571,7 +1591,7 @@ export default function Page() {
         src={julyAustralia[10].path}
         alt="Penghunies"
         headline="Penghunies dinner"
-        description="Celebration dinner with the crew. The people who made Brisbane feel like home."
+        description="Celebration dinner with the people who’ve been here since day zero."
         imagePosition="right"
         layout="full"
       />
