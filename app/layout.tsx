@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Caveat } from "next/font/google";
 import "./globals.css";
+import { PostHogProvider } from "./providers";
 
 const geistSans = Geist({
   variable: "--font-sans",
@@ -32,7 +33,9 @@ export default function RootLayout({
       lang="en"
       className={`${caveat.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
     >
-      <body>{children}</body>
+      <body>
+        <PostHogProvider>{children}</PostHogProvider>
+      </body>
     </html>
   );
 }

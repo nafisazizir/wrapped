@@ -3,6 +3,11 @@
 import { cn } from "@/lib/utils";
 import { Section } from "./Section";
 import { FadeIn } from "../typography/TextReveal";
+import { useEffect } from "react";
+import {
+  initScrollDepthTracking,
+  trackPerformanceMetrics,
+} from "@/lib/analytics";
 
 interface WrappedPageProps {
   children: React.ReactNode;
@@ -10,6 +15,16 @@ interface WrappedPageProps {
 }
 
 export function WrappedPage({ children, className }: WrappedPageProps) {
+  // Initialize scroll depth and performance tracking
+  useEffect(() => {
+    const cleanupScroll = initScrollDepthTracking();
+    trackPerformanceMetrics();
+
+    return () => {
+      cleanupScroll?.();
+    };
+  }, []);
+
   return (
     <main
       className={cn(

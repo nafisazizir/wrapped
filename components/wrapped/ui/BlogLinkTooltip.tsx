@@ -8,6 +8,7 @@ import {
 import { OptimizedImage } from "../media/OptimizedImage";
 import { cn } from "@/lib/utils";
 import { ArrowUpRight } from "lucide-react";
+import { trackBlogLinkClick } from "@/lib/analytics";
 
 interface BlogPreview {
   href: string;
@@ -58,6 +59,10 @@ export function BlogLinkTooltip({
     return <>{children}</>;
   }
 
+  const handleClick = () => {
+    trackBlogLinkClick(blogKey, preview.title);
+  };
+
   return (
     <Tooltip>
       <TooltipTrigger
@@ -67,6 +72,7 @@ export function BlogLinkTooltip({
             target="_blank"
             rel="noopener noreferrer"
             className={cn("cursor-pointer", className)}
+            onClick={handleClick}
           />
         }
       >

@@ -1,7 +1,12 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useId } from "react";
 import { cn } from "@/lib/utils";
+import {
+  trackVideoPlay,
+  trackVideoPause,
+  trackVideoComplete,
+} from "@/lib/analytics";
 
 interface VideoPlayerProps {
   src: string;
@@ -26,6 +31,8 @@ export function VideoPlayer({
   const [isMuted, setIsMuted] = useState(true);
   const [showOverlay, setShowOverlay] = useState(true);
   const [hasInteracted, setHasInteracted] = useState(false);
+  const videoId = useId();
+  const hasTrackedComplete = useRef(false);
 
   useEffect(() => {
     // Hide overlay after 5 seconds if user hasn't interacted
@@ -69,6 +76,56 @@ export function VideoPlayer({
       observer.disconnect();
     };
   }, []);
+
+  // Video analytics tracking
+  useEffect(() => {
+    const videoElement = videoRef.current;
+    if (!videoElement) return;
+
+    const handlePlay = () => {
+      trackVideoPlay(videoId, src);
+    };
+
+    const handlePause = () => {
+      trackVideoPause(
+        videoId,
+        src,
+        videoElement.currentTime,
+        videoElement.duration
+      );
+    };
+
+    const handleEnded = () => {
+      if (!hasTrackedComplete.current) {
+        trackVideoComplete(videoId, src, videoElement.duration);
+        hasTrackedComplete.current = true;
+      }
+    };
+
+    // Track when video loops (for looping videos, first complete play)
+    const handleTimeUpdate = () => {
+      if (
+        !hasTrackedComplete.current &&
+        videoElement.currentTime > 0 &&
+        videoElement.duration - videoElement.currentTime < 0.5
+      ) {
+        trackVideoComplete(videoId, src, videoElement.duration);
+        hasTrackedComplete.current = true;
+      }
+    };
+
+    videoElement.addEventListener("play", handlePlay);
+    videoElement.addEventListener("pause", handlePause);
+    videoElement.addEventListener("ended", handleEnded);
+    videoElement.addEventListener("timeupdate", handleTimeUpdate);
+
+    return () => {
+      videoElement.removeEventListener("play", handlePlay);
+      videoElement.removeEventListener("pause", handlePause);
+      videoElement.removeEventListener("ended", handleEnded);
+      videoElement.removeEventListener("timeupdate", handleTimeUpdate);
+    };
+  }, [videoId, src]);
 
   const toggleMute = () => {
     if (videoRef.current) {
